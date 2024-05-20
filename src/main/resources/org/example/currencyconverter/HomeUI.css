@@ -2,14 +2,17 @@
 #BgAnchor
 {
     -fx-background-color:  #675AFE;
+    -fx-background-radius: 12px;
 }
 
-#WhitePane{
+#WhitePane
+{
     -fx-background-color: white;
-    -fx-background-radius: 15px;
+    -fx-background-radius: 12px;
 }
 
 #barPane
 {
     -fx-background-color: lightgray;
+    -fx-background-radius: 12px 12px 0 0;
 }
