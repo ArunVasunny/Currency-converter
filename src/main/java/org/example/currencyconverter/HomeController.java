@@ -34,5 +34,7 @@ public class HomeController {
     @FXML
     private Button result;
 
+    @FXML
+    private AnchorPane barPane;
 
 }
