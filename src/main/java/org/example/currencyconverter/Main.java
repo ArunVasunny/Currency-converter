@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -23,7 +24,11 @@ public class Main extends Application
         Parent root = FXMLLoader.load(getClass().getResource("HomeUI.fxml"));
         Scene scene = new Scene(root,680, 720);
         scene.getStylesheets().add(getClass().getResource("HomeUI.css").toExternalForm());
+        //For adding user-defined title bar and functionalities
         stage.initStyle(StageStyle.UNDECORATED);
+        //For Making border Curved
+        scene.setFill(Color.TRANSPARENT);
+        stage.initStyle(StageStyle.TRANSPARENT);
 
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
@@ -42,7 +47,6 @@ public class Main extends Application
             }
         });
 
-        stage.setTitle("Currency Converter");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
