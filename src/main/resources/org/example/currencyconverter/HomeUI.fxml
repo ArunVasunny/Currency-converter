@@ -46,5 +46,6 @@
             </Label>
          </children>
       </AnchorPane>
+      <AnchorPane fx:id="barPane" layoutY="1.0" prefHeight="27.0" prefWidth="680.0" />
    </children>
 </AnchorPane>
