@@ -53,9 +53,9 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="exit" styleClass="button" layoutX="641.0" layoutY="4.0" mnemonicParsing="false" />
-            <Button fx:id="maxi" styleClass="button" layoutX="618.0" layoutY="4.0" mnemonicParsing="false" />
-            <Button fx:id="mini" styleClass="button" layoutX="593.0" layoutY="4.0" mnemonicParsing="false" />
+            <Button fx:id="exit" layoutX="640.0" layoutY="4.0" mnemonicParsing="false" styleClass="button" />
+            <Button fx:id="maxi" layoutX="615.0" layoutY="4.0" mnemonicParsing="false" styleClass="button" />
+            <Button fx:id="mini" layoutX="590.0" layoutY="4.0" mnemonicParsing="false" onAction="#miniBtnAction" styleClass="button" />
          </children></AnchorPane>
    </children>
 </AnchorPane>
