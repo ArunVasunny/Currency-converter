@@ -10,7 +10,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -73,13 +72,19 @@ public class HomeController implements Initializable{
         stage.setIconified(true);
     }
 
+    @FXML
+    private void exitBtnAction(ActionEvent event)
+    {
+        Stage stage = (Stage) BgAnchor.getScene().getWindow();
+        stage.close();
+    }
+
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
         setButtonImage(mini,"Minimize.png",20.0,20.0);
         setButtonImage(maxi,"Maximize.png",20.0,20.0);
         setButtonImage(exit,"Exit.png",20.0,20.0);
-
-
     }
 }
