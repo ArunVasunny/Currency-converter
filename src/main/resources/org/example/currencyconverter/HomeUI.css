@@ -21,5 +21,5 @@
     -fx-cursor: hand;
 }
 .button:hover {
-    -fx-effect: dropshadow(three-pass-box, rgba(255,255,255,1), 10, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(15, 1, 1, 0.644), 10, 0, 0, 0);
 }
