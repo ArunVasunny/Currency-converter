@@ -48,30 +48,30 @@ public class HomeController implements Initializable{
     private Label title;
 
     @FXML
-    private Label img1;
+    private Button mini;
 
     @FXML
-    private Label img2;
+    private Button maxi;
 
     @FXML
-    private Label img3;
+    private Button exit;
 
-    public void setLabelImage(Label label, String imgPath, Double width, Double height)
+    public void setButtonImage(Button btn, String imgPath, Double width, Double height)
     {
         ImageView imgView = new ImageView(new Image(getClass().getResourceAsStream(imgPath)));
         imgView.setFitHeight(height);
         imgView.setFitWidth(width);
-        label.setGraphic(imgView);
-//        label.setStyle("-fx-background-color: transparent; -fx-border-width: 1.5px; -fx-border-radius: 80px; -fx-border-color: white; -fx-text-fill: white");
+        btn.setGraphic(imgView);
+        btn.setStyle("-fx-background-color: transparent;");
     }
 
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setLabelImage(img1,"Minimize.png",20.0,20.0);
-        setLabelImage(img2,"Maximize.png",20.0,20.0);
-        setLabelImage(img3,"Exit.png",20.0,20.0);
+        setButtonImage(mini,"Minimize.png",20.0,20.0);
+        setButtonImage(maxi,"Maximize.png",20.0,20.0);
+        setButtonImage(exit,"Exit.png",20.0,20.0);
 
 
     }
