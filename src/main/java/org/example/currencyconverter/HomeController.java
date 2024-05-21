@@ -1,5 +1,6 @@
 package org.example.currencyconverter;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -8,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -65,6 +66,12 @@ public class HomeController implements Initializable{
         btn.setStyle("-fx-background-color: transparent;");
     }
 
+    @FXML
+    private void miniBtnAction(ActionEvent event)
+    {
+        Stage stage = (Stage) BgAnchor.getScene().getWindow();
+        stage.setIconified(true);
+    }
 
 
     @Override
