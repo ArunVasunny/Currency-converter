@@ -53,7 +53,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="exit" layoutX="640.0" layoutY="4.0" mnemonicParsing="false" styleClass="button" />
+            <Button fx:id="exit" layoutX="640.0" layoutY="4.0" mnemonicParsing="false" onAction="#exitBtnAction" styleClass="button" />
             <Button fx:id="maxi" layoutX="615.0" layoutY="4.0" mnemonicParsing="false" styleClass="button" />
             <Button fx:id="mini" layoutX="590.0" layoutY="4.0" mnemonicParsing="false" onAction="#miniBtnAction" styleClass="button" />
          </children></AnchorPane>
