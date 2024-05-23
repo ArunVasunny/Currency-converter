@@ -3,14 +3,13 @@ package org.example.currencyconverter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable{
@@ -56,6 +55,21 @@ public class HomeController implements Initializable{
     @FXML
     private Button exit;
 
+    @FXML
+    private ComboBox<String> box1;
+
+    @FXML
+    private ComboBox <String> box2;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        setButtonImage(mini,"Minimize.png",20.0,20.0);
+        setButtonImage(maxi,"Maximize.png",20.0,20.0);
+        setButtonImage(exit,"Exit.png",20.0,20.0);
+        populateBox();
+    }
+
     public void setButtonImage(Button btn, String imgPath, Double width, Double height)
     {
         ImageView imgView = new ImageView(new Image(getClass().getResourceAsStream(imgPath)));
@@ -79,12 +93,21 @@ public class HomeController implements Initializable{
         stage.close();
     }
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
+    @FXML
+    private void resltBtn()
     {
-        setButtonImage(mini,"Minimize.png",20.0,20.0);
-        setButtonImage(maxi,"Maximize.png",20.0,20.0);
-        setButtonImage(exit,"Exit.png",20.0,20.0);
+        CurrencyApi cm = new CurrencyApi();
+        String result = cm.connect();
+        label5.setText(result);
+    }
+
+
+    private void populateBox()
+    {
+        CurrencyApi cm = new CurrencyApi();
+        List<String> symbol = cm.fetchSymbols();
+
+        box1.getItems().addAll(symbol);
+        box2.getItems().addAll(symbol);
     }
 }
