@@ -97,7 +97,10 @@ public class HomeController implements Initializable{
     private void resltBtn()
     {
         CurrencyApi cm = new CurrencyApi();
-        String result = cm.connect();
+        double amount = Double.parseDouble(input.getText());
+        String from = box1.getValue();
+        String to = box2.getValue();
+        String result = cm.getConversionRate(from,to,amount);
         label5.setText(result);
     }
 
