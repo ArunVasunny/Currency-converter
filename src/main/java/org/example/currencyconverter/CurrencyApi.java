@@ -9,13 +9,16 @@ import java.util.List;
 
 
 public class CurrencyApi {
+    private static final int TIMEOUT = 30;
+
     //FETCHING AND RETRIEVING THE CONVERTED RATE
-    public String connect()
+    public String getConversionRate(String from, String to, double amount)
     {
         HomeController hm = new HomeController();
+        String url = String.format("https://api.apilayer.com/fixer/convert?to=%s&from=%s&amount=%f", to,from,amount);
         OkHttpClient client = new OkHttpClient().newBuilder().build();
         Request req = new Request.Builder()
-                .url("https://api.apilayer.com/fixer/convert?to=INR&from=USD&amount=1")
+                .url(url)
                 .addHeader("apikey",Apikey.apiKey)
                 .build();
 
@@ -64,5 +67,10 @@ public class CurrencyApi {
         return symbolsList;
     }
 
+    //For Fixing timeout issue
+//    private OkHttpClient getClient()
+//    {
+//
+//    }
 
 }
