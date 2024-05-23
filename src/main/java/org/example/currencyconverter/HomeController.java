@@ -96,12 +96,39 @@ public class HomeController implements Initializable{
     @FXML
     private void resltBtn()
     {
-        CurrencyApi cm = new CurrencyApi();
-        double amount = Double.parseDouble(input.getText());
         String from = box1.getValue();
         String to = box2.getValue();
-        String result = cm.getConversionRate(from,to,amount);
-        label5.setText(result);
+        String inputField = input.getText();
+
+        if (inputField == null || inputField.isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "Empty Field", "Enter a valid amount.");
+            return;
+        }
+
+        double amount;
+        try{
+            amount = Double.parseDouble(inputField);
+        }
+        catch(Exception ex)
+        {
+            showAlert(Alert.AlertType.ERROR,"Invalid Input", "Amount must be a Number.");
+            return;
+        }
+
+        if(from == null || to == null)
+        {
+            showAlert(Alert.AlertType.ERROR,"Invalid Selection!" ,"Please select Currency");
+            return;
+        }
+        CurrencyApi cm = new CurrencyApi();
+        String result = cm.getConversionRate(from, to, amount);
+        if (result != null) {
+            label5.setText(result);
+        }
+        else {
+            showAlert(Alert.AlertType.ERROR, "Conversion Error", "Failed to convert the currency.");
+        }
+
     }
 
 
@@ -112,5 +139,13 @@ public class HomeController implements Initializable{
 
         box1.getItems().addAll(symbol);
         box2.getItems().addAll(symbol);
+    }
+
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
