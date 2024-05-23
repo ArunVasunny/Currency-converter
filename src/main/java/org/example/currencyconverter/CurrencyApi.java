@@ -6,6 +6,7 @@ import org.json.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 public class CurrencyApi {
@@ -16,7 +17,9 @@ public class CurrencyApi {
     {
         HomeController hm = new HomeController();
         String url = String.format("https://api.apilayer.com/fixer/convert?to=%s&from=%s&amount=%f", to,from,amount);
-        OkHttpClient client = new OkHttpClient().newBuilder().build();
+//        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        OkHttpClient client = getClient();
+
         Request req = new Request.Builder()
                 .url(url)
                 .addHeader("apikey",Apikey.apiKey)
@@ -28,7 +31,7 @@ public class CurrencyApi {
             String resBody = res.body().string();
 
             JSONObject jsonOB = new JSONObject(resBody);
-            double rate = jsonOB.getJSONObject("info").getDouble("rate");
+            double rate = jsonOB.getDouble("result");
 
             String rateString = String.valueOf(rate);
             return rateString;
@@ -44,7 +47,9 @@ public class CurrencyApi {
     public List<String> fetchSymbols()
     {
         List<String> symbolsList = new ArrayList<>();
-        OkHttpClient client = new OkHttpClient().newBuilder().build();
+//        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        OkHttpClient client = getClient();
+
         Request req = new Request.Builder()
                 .url("https://api.apilayer.com/fixer/symbols")
                 .addHeader("apikey", Apikey.apiKey)
@@ -68,9 +73,12 @@ public class CurrencyApi {
     }
 
     //For Fixing timeout issue
-//    private OkHttpClient getClient()
-//    {
-//
-//    }
-
+    private OkHttpClient getClient()
+    {
+        return new OkHttpClient.Builder()
+                .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
+                .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
+                .readTimeout(TIMEOUT,TimeUnit.SECONDS)
+                .build();
+    }
 }
