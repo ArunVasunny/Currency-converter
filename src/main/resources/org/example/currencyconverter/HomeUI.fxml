@@ -5,6 +5,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -13,23 +15,23 @@
       <AnchorPane fx:id="WhitePane" layoutX="125.0" layoutY="114.0" prefHeight="492.0" prefWidth="430.0" AnchorPane.bottomAnchor="114.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="114.0">
          <children>
             <TextField fx:id="input" layoutX="31.0" layoutY="135.0" prefHeight="33.0" prefWidth="368.0" promptText="Enter the Amount" AnchorPane.bottomAnchor="324.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="135.0" />
-            <ComboBox fx:id="box1" layoutX="33.0" layoutY="232.0" prefHeight="49.0" prefWidth="150.0" AnchorPane.bottomAnchor="211.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="260.0" AnchorPane.topAnchor="232.0" />
-            <ComboBox fx:id="box2" layoutX="261.0" layoutY="232.0" prefHeight="49.0" prefWidth="150.0" AnchorPane.bottomAnchor="211.0" AnchorPane.leftAnchor="261.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="232.0">
+            <ComboBox fx:id="box1" layoutX="33.0" layoutY="232.0" prefHeight="49.0" prefWidth="150.0" styleClass="boxes" AnchorPane.bottomAnchor="211.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="260.0" AnchorPane.topAnchor="232.0" />
+            <ComboBox fx:id="box2" layoutX="261.0" layoutY="232.0" prefHeight="49.0" prefWidth="150.0" styleClass="boxes" AnchorPane.bottomAnchor="211.0" AnchorPane.leftAnchor="261.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="232.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets></ComboBox>
             <Button fx:id="result" layoutX="33.0" layoutY="411.0" mnemonicParsing="false" onAction="#resltBtn" prefHeight="39.0" prefWidth="368.0" text="Get Exchange Rates" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="411.0" />
-            <Label fx:id="label2" layoutX="31.0" layoutY="114.0" text="Enter Amount">
+            <Label fx:id="label2" layoutX="31.0" layoutY="105.0" prefHeight="25.0" prefWidth="99.0" text="Enter Amount">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="label3" layoutX="33.0" layoutY="211.0" text="From">
+            <Label fx:id="label3" layoutX="33.0" layoutY="201.0" prefHeight="29.0" prefWidth="37.0" text="From">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="label4" layoutX="261.0" layoutY="211.0" text="To">
+            <Label fx:id="label4" layoutX="261.0" layoutY="201.0" prefHeight="29.0" prefWidth="18.0" text="To">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -39,11 +41,16 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <Label fx:id="label5" layoutX="38.0" layoutY="333.0" prefHeight="38.0" prefWidth="361.0" text="Currency Converted">
+            <Label fx:id="label5" layoutX="38.0" layoutY="333.0" prefHeight="38.0" prefWidth="361.0" text="Result">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="195.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@arrow.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="barPane" layoutY="1.0" prefHeight="27.0" prefWidth="680.0">
