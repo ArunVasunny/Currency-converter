@@ -1,7 +1,7 @@
 
 #BgAnchor
 {
-    -fx-background-color:  #675AFE;
+    -fx-background-color:  #6699CC;
     -fx-background-radius: 12px;
 }
 
@@ -22,4 +22,37 @@
 }
 .button:hover {
     -fx-effect: dropshadow(three-pass-box, rgba(15, 1, 1, 0.644), 10, 0, 0, 0);
+}
+
+.boxes{
+
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+    -fx-border-radius:5px;
+    -fx-background-color: transparent;
+
+}
+
+#result{
+    -fx-background-color: #6699CC;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+#label1{
+    -fx-text-fill: Black;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-font-family: Times new roman;
+}
+
+#input{
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+    -fx-border-radius:5px;
+}
+
+.boxes>.list-cell {
+    -fx-alignment: center;
 }
