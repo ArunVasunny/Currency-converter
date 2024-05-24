@@ -135,7 +135,49 @@ public class HomeController implements Initializable{
     private void populateBox()
     {
         CurrencyApi cm = new CurrencyApi();
+        FlagsApi fg = new FlagsApi();
         List<String> symbol = cm.fetchSymbols();
+
+        box1.setButtonCell(new ListCell<>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                    setGraphic(null);
+                }
+                else {
+                    setText(item);
+                    String countryCode = box1.getValue();
+                    Image flagImage = FlagsApi.getFlagImg(countryCode);
+                    ImageView imageView = new ImageView(flagImage);
+                    imageView.setFitHeight(36);
+                    imageView.setFitWidth(36);
+                    setGraphic(imageView);
+                }
+            }
+        });
+
+
+        box2.setButtonCell(new ListCell<>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                    setGraphic(null);
+                }
+                else {
+                    setText(item);
+                    String countryCode = box2.getValue();
+                    Image flagImage = FlagsApi.getFlagImg(countryCode);
+                    ImageView imageView = new ImageView(flagImage);
+                    imageView.setFitHeight(36);
+                    imageView.setFitWidth(36);
+                    setGraphic(imageView);
+                }
+            }
+        });
 
         box1.getItems().addAll(symbol);
         box2.getItems().addAll(symbol);
@@ -148,4 +190,5 @@ public class HomeController implements Initializable{
         alert.setContentText(message);
         alert.showAndWait();
     }
+
 }
