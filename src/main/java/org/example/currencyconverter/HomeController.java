@@ -68,6 +68,7 @@ public class HomeController implements Initializable{
         setButtonImage(maxi,"Maximize.png",20.0,20.0);
         setButtonImage(exit,"Exit.png",20.0,20.0);
         populateBox();
+        input.setFocusTraversable(false);
     }
 
     public void setButtonImage(Button btn, String imgPath, Double width, Double height)
@@ -123,7 +124,7 @@ public class HomeController implements Initializable{
         CurrencyApi cm = new CurrencyApi();
         String result = cm.getConversionRate(from, to, amount);
         if (result != null) {
-            label5.setText(result);
+            label5.setText(amount+" "+from+ " = "+result+" "+to);
         }
         else {
             showAlert(Alert.AlertType.ERROR, "Conversion Error", "Failed to convert the currency.");
