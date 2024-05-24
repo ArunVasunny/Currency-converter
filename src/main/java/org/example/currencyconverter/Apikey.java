@@ -1,7 +1,5 @@
 package org.example.currencyconverter;
 
 public class Apikey {
-    public static final String apiKey = "4XbsLoxVkFOAK5kqnQtwBhiYr7zYryST";
-//    public static final String apiKey = "vNGS74Nzc078u0Svy0dXYPUcop3zmWWw";
-
+    public static final String apiKey = "qSfjSfqIW3WSIlDH11mriVWE3qj7513h";
 }
